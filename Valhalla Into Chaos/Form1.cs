@@ -37,6 +37,9 @@ namespace Valhalla_Into_Chaos
             loreButton2.Hide();
             settingButton.Hide();
             quitButton3.Hide();
+
+            playerHealth = 100;
+            CPUHealth = 100;
         }
         public void GameStart()
         {
@@ -61,10 +64,31 @@ namespace Valhalla_Into_Chaos
             quitButton3.Show();
 
             InfoTextLabel.Text = "";
+            playerHealthLabel.Text = "";
+            CPUHealthLabel.Text = "";
         }
         public void GameOver()
         {
+            attackButton.Hide();
+            defendButton.Hide();
+            healButton.Hide();
+            escapeButton.Hide();
+            mainMenuButton.Hide();
+            loreButton.Hide();
+            quitButton.Hide();
 
+            throwWeaponButton.Hide();
+            sendTroopsButton.Hide();
+            concussButton.Hide();
+
+            playButton.Hide();
+            loreButton2.Hide();
+            settingButton.Hide();
+            quitButton3.Hide();
+
+            InfoTextLabel.Text = "";
+            playerHealthLabel.Text = "";
+            CPUHealthLabel.Text = "";
         }
         public void BotTurn()
         {
@@ -160,7 +184,25 @@ namespace Valhalla_Into_Chaos
             }
             if (botMove == 3)
             {
-
+                int healHealth = ranGen.Next(1, 21);
+                CPUHealth = CPUHealth + healHealth;
+                if (healHealth <= 5)
+                {
+                    InfoTextLabel.Text += $"\nYou drink a health potion but it is expired. You heal {healHealth} health.";
+                }
+                if (healHealth >= 6 && healHealth <= 10)
+                {
+                    InfoTextLabel.Text += $"\nYou drink a health potion. You heal {healHealth} health.";
+                }
+                if (healHealth >= 11 && healHealth <= 15)
+                {
+                    InfoTextLabel.Text += $"\nYou drink a strong health potion. You heal {healHealth} health.";
+                }
+                if (healHealth >= 16 && healHealth <= 20)
+                {
+                    InfoTextLabel.Text += $"\nYou summom a professional alchemist to create you the greated health potion." +
+                        $" You heal {healHealth} health.";
+                }
             }
             isPlayerTurn = true;
         }
@@ -273,7 +315,6 @@ namespace Valhalla_Into_Chaos
             {
                 BotTurn();
             }
-            Thread.Sleep(1000);
             RefreshHealth();
 
         }//compelete
@@ -318,7 +359,6 @@ namespace Valhalla_Into_Chaos
             {
                 BotTurn();
             }
-            Thread.Sleep(1000);
             RefreshHealth();
         }//compelete
 

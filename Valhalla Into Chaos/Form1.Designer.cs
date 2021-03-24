@@ -251,18 +251,16 @@ namespace Valhalla_Into_Chaos
             this.playerHealthLabel.AutoSize = true;
             this.playerHealthLabel.Location = new System.Drawing.Point(13, 13);
             this.playerHealthLabel.Name = "playerHealthLabel";
-            this.playerHealthLabel.Size = new System.Drawing.Size(41, 15);
+            this.playerHealthLabel.Size = new System.Drawing.Size(0, 15);
             this.playerHealthLabel.TabIndex = 23;
-            this.playerHealthLabel.Text = "label1";
             // 
             // CPUHealthLabel
             // 
             this.CPUHealthLabel.AutoSize = true;
             this.CPUHealthLabel.Location = new System.Drawing.Point(730, 9);
             this.CPUHealthLabel.Name = "CPUHealthLabel";
-            this.CPUHealthLabel.Size = new System.Drawing.Size(41, 15);
+            this.CPUHealthLabel.Size = new System.Drawing.Size(0, 15);
             this.CPUHealthLabel.TabIndex = 24;
-            this.CPUHealthLabel.Text = "label1";
             // 
             // Form1
             // 
