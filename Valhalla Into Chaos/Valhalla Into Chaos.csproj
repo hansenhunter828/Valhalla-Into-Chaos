@@ -86,5 +86,11 @@
   <ItemGroup>
     <None Include="Resources\In Game Info Box CSF.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Odin CSF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Loki CSF.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

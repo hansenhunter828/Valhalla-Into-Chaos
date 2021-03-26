@@ -15,8 +15,15 @@ namespace Valhalla_Into_Chaos
     {
         int playerHealth = 100;
         int CPUHealth = 100;
-        int healTurn = 3;
+
+        int healTurn = 0;
+        int troopsTurn = 0;
+        int concussTurn = 0;
+
+
+        bool blocking = false;
         bool isPlayerTurn = true;
+
         Random ranGen = new Random();
         public Form1()
         {
@@ -38,8 +45,19 @@ namespace Valhalla_Into_Chaos
             settingButton.Hide();
             quitButton3.Hide();
 
+            quitButton4.Hide();
+            replayButton.Hide();
+
+            InfoTextLabel.Text = "";
+            playerHealthLabel.Text = "";
+            CPUHealthLabel.Text = "";
+
             playerHealth = 100;
             CPUHealth = 100;
+
+            CPUPictureBox.Show();
+            playerPictureBox.Show();
+            infoPictureBox.Show();
         }
         public void GameStart()
         {
@@ -50,6 +68,8 @@ namespace Valhalla_Into_Chaos
             mainMenuButton.Hide();
             loreButton.Hide();
             quitButton.Hide();
+            quitButton4.Hide();
+            replayButton.Hide();
 
             throwWeaponButton.Hide();
             sendTroopsButton.Hide();
@@ -66,6 +86,10 @@ namespace Valhalla_Into_Chaos
             InfoTextLabel.Text = "";
             playerHealthLabel.Text = "";
             CPUHealthLabel.Text = "";
+
+            CPUPictureBox.Hide();
+            playerPictureBox.Hide();
+            infoPictureBox.Hide();
         }
         public void GameOver()
         {
@@ -86,12 +110,20 @@ namespace Valhalla_Into_Chaos
             settingButton.Hide();
             quitButton3.Hide();
 
+            playerPictureBox.Hide();
+            CPUPictureBox.Hide();
+
             InfoTextLabel.Text = "";
             playerHealthLabel.Text = "";
             CPUHealthLabel.Text = "";
+
+            quitButton4.Show();
+            replayButton.Show();
         }
         public void BotTurn()
         {
+            if(blocking == false)
+            {
             int botMove = ranGen.Next(1, 2);
             if (botMove == 1)
             {
@@ -104,20 +136,20 @@ namespace Valhalla_Into_Chaos
                         int throwWeaponDmg = ranGen.Next(12, 17);
                         if (throwWeaponDmg <= 15)
                         {
-                            InfoTextLabel.Text = $"Loki throws a weapon at you dealing {throwWeaponDmg} damage.";
+                            InfoTextLabel.Text += $"\nLoki throws a weapon at you dealing {throwWeaponDmg} damage.";
                             playerHealth = playerHealth - throwWeaponDmg;
                             isPlayerTurn = true;
                         }
                         else if (throwWeaponDmg > 15)
                         {
-                            InfoTextLabel.Text = $"Loki throws a weapon at you penatrating your armor dealing {throwWeaponDmg} damage.";
+                            InfoTextLabel.Text += $"\nLoki throws a weapon at you penatrating your armor dealing {throwWeaponDmg} damage.";
                             playerHealth = playerHealth - throwWeaponDmg;
                             isPlayerTurn = true;
                         }
                     }
                     else if (hitChance == 10)
                     {
-                        InfoTextLabel.Text = "loki throws a weapon and it completely misses you.";
+                        InfoTextLabel.Text += "\nloki throws a weapon and it completely misses you.";
                     }
                 }
                 if (attackMove == 2)
@@ -128,17 +160,17 @@ namespace Valhalla_Into_Chaos
                         int sendTroopsDmg = ranGen.Next(17, 31);
                         if (sendTroopsDmg <= 20)
                         {
-                            InfoTextLabel.Text = $"You command your viking to attack Loki. They struggle against him and deal {sendTroopsDmg} damage.";
+                            InfoTextLabel.Text = $"\nYou command your viking to attack Loki. They struggle against him and deal {sendTroopsDmg} damage.";
                             playerHealth = playerHealth - sendTroopsDmg;
                         }
                         if (sendTroopsDmg >= 21 && sendTroopsDmg <= 25)
                         {
-                            InfoTextLabel.Text = $"You command your viking to attack Loki. They succeed against him and deal {sendTroopsDmg} damage.";
+                            InfoTextLabel.Text = $"\nYou command your viking to attack Loki. They succeed against him and deal {sendTroopsDmg} damage.";
                             playerHealth = playerHealth - sendTroopsDmg;
                         }
                         if (sendTroopsDmg >= 26 && sendTroopsDmg <= 30)
                         {
-                            InfoTextLabel.Text = $"You command your viking to attack Loki. They ravage him and deal {sendTroopsDmg} damage.";
+                            InfoTextLabel.Text = $"\nYou command your viking to attack Loki. They ravage him and deal {sendTroopsDmg} damage.";
                             playerHealth = playerHealth - sendTroopsDmg;
                         }
                     }
@@ -154,22 +186,22 @@ namespace Valhalla_Into_Chaos
                         switch (textRoll)
                         {
                             case 1:
-                                InfoTextLabel.Text = "Loki does a backflip and you drop your jaw in awe. Loki has an opportunity to take an extra move.";
+                                InfoTextLabel.Text = "\nLoki does a backflip and you drop your jaw in awe. Loki has an opportunity to take an extra move.";
                                 break;
                             case 2:
-                                InfoTextLabel.Text = "Loki stats mocking you and you get offended and start telling him off.";
+                                InfoTextLabel.Text += "\nLoki stats mocking you and you get offended and start telling him off.";
                                 InfoTextLabel.Text += " Loki has an opportunity to take an extra move.";
                                 break;
                             case 3:
-                                InfoTextLabel.Text = "Loki tells you a very complex riddle and in the time you are trying yo figure it out";
+                                InfoTextLabel.Text += "\nLoki tells you a very complex riddle and in the time you are trying yo figure it out";
                                 InfoTextLabel.Text += " he gets an opportunity to take an extra move.";
                                 break;
                             case 4:
-                                InfoTextLabel.Text = "Loki says there is something on your face and well you are getting it off your face";
+                                InfoTextLabel.Text += "\nLoki says there is something on your face and well you are getting it off your face";
                                 InfoTextLabel.Text += " he gets an opportunity to take an extra move.";
                                 break;
                             case 5:
-                                InfoTextLabel.Text = " Loki asks you to fill out a questionare and as you work on it.";
+                                InfoTextLabel.Text += "\nLoki asks you to fill out a questionare and as you work on it.";
                                 InfoTextLabel.Text += " he gets an opportunity to take an extra move.";
                                 break;
                         }
@@ -180,7 +212,7 @@ namespace Valhalla_Into_Chaos
             }
             if (botMove == 2)
             {
-
+                    InfoTextLabel.Text += "\n Loki counters your attack";
             }
             if (botMove == 3)
             {
@@ -205,6 +237,13 @@ namespace Valhalla_Into_Chaos
                 }
             }
             isPlayerTurn = true;
+            }
+            else if (blocking == true)
+            {
+                isPlayerTurn = true;
+                blocking = false;
+            }
+
         }
         public void RefreshHealth()
         {
@@ -221,9 +260,15 @@ namespace Valhalla_Into_Chaos
 
         private void defendButton_Click(object sender, EventArgs e)
         {
+            healTurn++;
+            troopsTurn++;
+            concussTurn++;
+
             throwWeaponButton.Hide();
             sendTroopsButton.Hide();
             concussButton.Hide();
+
+            blocking = true;
 
             InfoTextLabel.Text = "Loki attacks you with his weapon but you are ready for him and block his attack";
             RefreshHealth();
@@ -231,10 +276,15 @@ namespace Valhalla_Into_Chaos
        
         private void healButton_Click(object sender, EventArgs e)
         {
-            if (isPlayerTurn = true && playerHealth < 100 && healTurn == 3)
+            healTurn++;
+            troopsTurn++;
+            concussTurn++;
+            if (isPlayerTurn == true && playerHealth < 100 && healTurn >= 3)
             {
                 int healHealth = ranGen.Next(1, 21);
                 healTurn++;
+                troopsTurn++;
+                concussTurn++;
 
                 playerHealth = playerHealth + healHealth;
                 if (healHealth <= 5)
@@ -256,10 +306,11 @@ namespace Valhalla_Into_Chaos
                 }
                 isPlayerTurn = false;
             }
-            else if (isPlayerTurn == true)
+            else if (isPlayerTurn == true && playerHealth >= 100)
             {
                 int overhealth = ranGen.Next(1, 11);
                 InfoTextLabel.Text = $"You try to  drink a health potion but there is to much in your system. Take {overhealth} damage.";
+                playerHealth = playerHealth - overhealth;
             }
             else if (isPlayerTurn == false)
             {
@@ -271,16 +322,20 @@ namespace Valhalla_Into_Chaos
                 playerHealth = 100;
             }
             RefreshHealth();
+            BotTurn();
         }//compelete
 
         private void escapeButton_Click(object sender, EventArgs e)
         {
-
+            GameStart();
         }//compelete
         #region Attacks
         private void throwWeaponButton_Click(object sender, EventArgs e)
         {
             int hitChance = ranGen.Next(1, 11);
+            healTurn++;
+            troopsTurn++;
+            concussTurn++;
 
             if (isPlayerTurn == true && hitChance <= 9)
             {
@@ -322,8 +377,11 @@ namespace Valhalla_Into_Chaos
         private void sendTroopsButton_Click(object sender, EventArgs e)
         {
             int sendTroopsHit = ranGen.Next(1, 11);
+            healTurn++;
+            troopsTurn++;
+            concussTurn++;
 
-            if (isPlayerTurn == true && sendTroopsHit <= 5)
+            if (isPlayerTurn == true && sendTroopsHit <= 5 && troopsTurn % 3 == 0)
             {
                 int sendTroopsDmg = ranGen.Next(17, 31);
                 if (sendTroopsDmg <= 20)
@@ -351,7 +409,7 @@ namespace Valhalla_Into_Chaos
                 InfoTextLabel.Text = "It is not your turn";
             }
 
-            if (isPlayerTurn == false && playerHealth <= 0 || CPUHealth <= 0)
+            if (playerHealth <= 0 || CPUHealth <= 0)
             {
                 GameOver();
             }
@@ -364,10 +422,14 @@ namespace Valhalla_Into_Chaos
 
         private void concussButton_Click(object sender, EventArgs e)
         {
+            healTurn++;
+            troopsTurn++;
+            concussTurn++;
+
             int concussRoll = ranGen.Next(1, 11);
             int textRoll = ranGen.Next(1, 6);
 
-            if (isPlayerTurn = true && concussRoll <= 8)
+            if (isPlayerTurn = true && concussRoll <= 8 && concussTurn % 4 == 0)
             {
                 switch (textRoll)
                 {
@@ -396,6 +458,7 @@ namespace Valhalla_Into_Chaos
                 InfoTextLabel.Text = "Your attempt at confusing him has failed";
                 isPlayerTurn = false;
             }
+
 
             if (isPlayerTurn == false && playerHealth <= 0 || CPUHealth <= 0)
             {
@@ -456,7 +519,16 @@ namespace Valhalla_Into_Chaos
         {
             GameStart();
         }//Complete
-        #endregion
 
+        private void replayButton_Click(object sender, EventArgs e)
+        {
+            GameSetup();
+        }//complete
+
+        private void quitButton4_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }//complete
+        #endregion
     }
 }
