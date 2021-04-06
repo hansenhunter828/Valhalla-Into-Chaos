@@ -433,7 +433,7 @@ namespace Valhalla_Into_Chaos
             troopsTurn++;
             concussTurn++;
 
-            if (sendTroopsHit <= 5 && troopsTurn % 3 == 0)
+            if (sendTroopsHit <= 8 && troopsTurn % 3 == 0)
             {
                 int sendTroopsDmg = ranGen.Next(17, 31);
                 if (sendTroopsDmg <= 20)
@@ -451,7 +451,7 @@ namespace Valhalla_Into_Chaos
                 CPUHealth = CPUHealth - sendTroopsDmg;
 
             }
-            else if (sendTroopsHit >= 6)
+            else if (sendTroopsHit >= 9)
             {
                 InfoTextLabel.Text = "You command your vikings to attack Loki but they completely miss where he is and are now lost";
             }
