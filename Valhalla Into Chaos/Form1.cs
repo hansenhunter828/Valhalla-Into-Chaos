@@ -25,7 +25,6 @@ namespace Valhalla_Into_Chaos
         int botHealTurn = 0;
 
         bool playerBlocking = false;
-        bool isPlayerTurn = true;
 
         Random ranGen = new Random();
         #region SoundPlayers
@@ -145,14 +144,10 @@ namespace Valhalla_Into_Chaos
         public void BotTurn()
         {
             botHealTurn++;
-            int botMove = ranGen.Next(1, 3);
+            int botMove = ranGen.Next(1, 101);
             if (playerBlocking == false)
             {
-                if (botHealTurn >= 3)
-                {
-                    botMove = ranGen.Next(1, 3);
-                }
-                if (botMove == 1)
+                if (botMove <= 79)
                 {
                     int attackMove = ranGen.Next(1, 4);
                     if (attackMove == 1)
@@ -165,7 +160,6 @@ namespace Valhalla_Into_Chaos
                             {
                                 InfoTextLabel.Text += $"\nLoki throws a weapon at you dealing {throwWeaponDmg} damage.";
                                 playerHealth = playerHealth - throwWeaponDmg;
-                                isPlayerTurn = true;
 
                                 hurtSound.Play();
                             }
@@ -173,7 +167,6 @@ namespace Valhalla_Into_Chaos
                             {
                                 InfoTextLabel.Text += $"\nLoki throws a weapon at you penatrating your armor dealing {throwWeaponDmg} damage.";
                                 playerHealth = playerHealth - throwWeaponDmg;
-                                isPlayerTurn = true;
 
                                 hurtSound.Play();
                             }
@@ -208,6 +201,11 @@ namespace Valhalla_Into_Chaos
                                 hurtSound.Play();
                             }
                         }
+                        else
+                        {
+                            InfoTextLabel.Text += "\nLoki's army gets lost and cant find you";
+
+                        }
 
                     }
                     if (attackMove == 3)
@@ -241,10 +239,14 @@ namespace Valhalla_Into_Chaos
                             }
                             BotTurn();
                         }
+                        else
+                        {
+                            InfoTextLabel.Text += "\nLoki attempts to confuse you but fails";
+                        }
                     }
 
                 }
-                if (botMove == 2 && botHealTurn % 3 == 0)
+                if (botMove >= 80 && botHealTurn % 3 == 0)
                 {
                     if (CPUHealth < 100)
                     {
@@ -280,12 +282,14 @@ namespace Valhalla_Into_Chaos
                     }
 
                 }
+                if (botMove >= 80 && botHealTurn % 3 != 0)
+                {
+                    InfoTextLabel.Text += "\nLoki tries to heal but he can not find any health potions";
+                }
 
-                isPlayerTurn = true;
             }
             else if (playerBlocking == true)
             {
-                isPlayerTurn = true;
                 playerBlocking = false;
             }
 
@@ -325,7 +329,7 @@ namespace Valhalla_Into_Chaos
             healTurn++;
             troopsTurn++;
             concussTurn++;
-            if (isPlayerTurn == true && playerHealth < 100 && healTurn % 3 == 0)
+            if (playerHealth < 100 && healTurn % 3 == 0)
             {
                 int healHealth = ranGen.Next(1, 21);
                 healTurn++;
@@ -354,9 +358,8 @@ namespace Valhalla_Into_Chaos
                         $" You heal {healHealth} health.";
                     healSound.Play();
                 }
-                isPlayerTurn = false;
             }
-            else if (isPlayerTurn == true && playerHealth >= 100)
+            else if (playerHealth >= 100)
             {
                 int overhealth = ranGen.Next(1, 11);
                 InfoTextLabel.Text = $"You try to  drink a health potion but there is to much in your system. Take {overhealth} damage.";
@@ -388,7 +391,7 @@ namespace Valhalla_Into_Chaos
             troopsTurn++;
             concussTurn++;
 
-            if (isPlayerTurn == true && hitChance <= 9)
+            if (hitChance <= 9)
             {
                 int throwWeaponDmg = ranGen.Next(12, 17);
                 CPUHealth = CPUHealth - throwWeaponDmg;
@@ -401,19 +404,13 @@ namespace Valhalla_Into_Chaos
                 {
                     InfoTextLabel.Text = $"You throw your weapon at Loki penatrating his armor dealing {throwWeaponDmg} damage.";
                 }
-                isPlayerTurn = false;
             }
-            else if (isPlayerTurn = true && hitChance == 10)
+            else if ( hitChance == 10)
             {
                 InfoTextLabel.Text = "You throw your weapon and completely miss him.";
-                isPlayerTurn = false;
-            }
-            else if (isPlayerTurn == false)
-            {
-                InfoTextLabel.Text = "It is not your turn";
             }
 
-            if (isPlayerTurn == false && playerHealth <= 0 || CPUHealth <= 0)
+            if (playerHealth <= 0 || CPUHealth <= 0)
             {
                 GameOver();
             }
@@ -421,8 +418,11 @@ namespace Valhalla_Into_Chaos
             {
                 BotTurn();
             }
+            if (playerHealth > 0 && CPUHealth > 0)
+            {
+                RefreshHealth();
+            }
 
-            RefreshHealth();
 
         }//compelete
         private void sendTroopsButton_Click(object sender, EventArgs e)
@@ -433,7 +433,7 @@ namespace Valhalla_Into_Chaos
             troopsTurn++;
             concussTurn++;
 
-            if (isPlayerTurn == true && sendTroopsHit <= 5 && troopsTurn % 3 == 0)
+            if (sendTroopsHit <= 5 && troopsTurn % 3 == 0)
             {
                 int sendTroopsDmg = ranGen.Next(17, 31);
                 if (sendTroopsDmg <= 20)
@@ -449,18 +449,12 @@ namespace Valhalla_Into_Chaos
                     InfoTextLabel.Text = $"You command your viking to attack Loki. They ravage him and deal {sendTroopsDmg} damage.";
                 }
                 CPUHealth = CPUHealth - sendTroopsDmg;
-                isPlayerTurn = false;
+
             }
-            else if (isPlayerTurn = true && sendTroopsHit >= 6)
+            else if (sendTroopsHit >= 6)
             {
                 InfoTextLabel.Text = "You command your vikings to attack Loki but they completely miss where he is and are now lost";
-                isPlayerTurn = false;
             }
-            else if (isPlayerTurn == false)
-            {
-                InfoTextLabel.Text = "It is not your turn";
-            }
-
             if (playerHealth <= 0 || CPUHealth <= 0)
             {
                 GameOver();
@@ -482,7 +476,7 @@ namespace Valhalla_Into_Chaos
             int concussRoll = ranGen.Next(1, 11);
             int textRoll = ranGen.Next(1, 6);
 
-            if (isPlayerTurn = true && concussRoll <= 8 && concussTurn % 4 == 0)
+            if ( concussRoll <= 8 && concussTurn % 4 == 0)
             {
                 switch (textRoll)
                 {
@@ -506,20 +500,15 @@ namespace Valhalla_Into_Chaos
                         break;
                 }
             }
-            else if (isPlayerTurn = true && concussRoll > 8)
+            else if (concussRoll > 8)
             {
                 InfoTextLabel.Text = "Your attempt at confusing him has failed";
-                isPlayerTurn = false;
+
             }
 
-
-            if (isPlayerTurn == false && playerHealth <= 0 || CPUHealth <= 0)
+            if (playerHealth <= 0 || CPUHealth <= 0)
             {
                 GameOver();
-            }
-            else if (isPlayerTurn == false)
-            {
-                BotTurn();
             }
 
             RefreshHealth();
@@ -644,7 +633,6 @@ namespace Valhalla_Into_Chaos
             menuLabel.Text = "";
         }//complete
         #endregion
-
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             #region Brushes
