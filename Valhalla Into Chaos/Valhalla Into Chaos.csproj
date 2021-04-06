@@ -92,5 +92,20 @@
   <ItemGroup>
     <None Include="Resources\Loki CSF.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Menu Screen Border CSF.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\414072__inspectorj__dialogue-pained-yelp-loud-b.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\346116__lulyc__retro-game-heal-sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\76376__deleted-user-877451__game-over.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\494493__sheyvan__button-clicking-7-single.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

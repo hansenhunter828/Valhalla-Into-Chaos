@@ -49,19 +49,21 @@ namespace Valhalla_Into_Chaos
             this.quitButton3 = new System.Windows.Forms.Button();
             this.playerHealthLabel = new System.Windows.Forms.Label();
             this.CPUHealthLabel = new System.Windows.Forms.Label();
-            this.CPUPictureBox = new System.Windows.Forms.PictureBox();
-            this.playerPictureBox = new System.Windows.Forms.PictureBox();
-            this.infoPictureBox = new System.Windows.Forms.PictureBox();
             this.replayButton = new System.Windows.Forms.Button();
             this.quitButton4 = new System.Windows.Forms.Button();
+            this.menuLabel = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
+            this.gameOverLabel = new System.Windows.Forms.Label();
+            this.CPUPictureBox = new System.Windows.Forms.PictureBox();
+            this.playerPictureBox = new System.Windows.Forms.PictureBox();
+            this.backButton2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CPUPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // attackButton
             // 
-            this.attackButton.Location = new System.Drawing.Point(15, 369);
+            this.attackButton.Location = new System.Drawing.Point(25, 336);
             this.attackButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.attackButton.Name = "attackButton";
             this.attackButton.Size = new System.Drawing.Size(187, 50);
@@ -72,7 +74,7 @@ namespace Valhalla_Into_Chaos
             // 
             // defendButton
             // 
-            this.defendButton.Location = new System.Drawing.Point(15, 425);
+            this.defendButton.Location = new System.Drawing.Point(25, 390);
             this.defendButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.defendButton.Name = "defendButton";
             this.defendButton.Size = new System.Drawing.Size(187, 50);
@@ -83,7 +85,7 @@ namespace Valhalla_Into_Chaos
             // 
             // healButton
             // 
-            this.healButton.Location = new System.Drawing.Point(13, 480);
+            this.healButton.Location = new System.Drawing.Point(25, 445);
             this.healButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.healButton.Name = "healButton";
             this.healButton.Size = new System.Drawing.Size(187, 50);
@@ -94,7 +96,7 @@ namespace Valhalla_Into_Chaos
             // 
             // escapeButton
             // 
-            this.escapeButton.Location = new System.Drawing.Point(15, 535);
+            this.escapeButton.Location = new System.Drawing.Point(25, 499);
             this.escapeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.escapeButton.Name = "escapeButton";
             this.escapeButton.Size = new System.Drawing.Size(187, 50);
@@ -105,7 +107,7 @@ namespace Valhalla_Into_Chaos
             // 
             // mainMenuButton
             // 
-            this.mainMenuButton.Location = new System.Drawing.Point(841, 369);
+            this.mainMenuButton.Location = new System.Drawing.Point(827, 336);
             this.mainMenuButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.mainMenuButton.Name = "mainMenuButton";
             this.mainMenuButton.Size = new System.Drawing.Size(187, 50);
@@ -116,7 +118,7 @@ namespace Valhalla_Into_Chaos
             // 
             // loreButton
             // 
-            this.loreButton.Location = new System.Drawing.Point(841, 443);
+            this.loreButton.Location = new System.Drawing.Point(827, 412);
             this.loreButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loreButton.Name = "loreButton";
             this.loreButton.Size = new System.Drawing.Size(187, 50);
@@ -127,7 +129,7 @@ namespace Valhalla_Into_Chaos
             // 
             // quitButton
             // 
-            this.quitButton.Location = new System.Drawing.Point(841, 523);
+            this.quitButton.Location = new System.Drawing.Point(827, 499);
             this.quitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.quitButton.Name = "quitButton";
             this.quitButton.Size = new System.Drawing.Size(187, 50);
@@ -139,15 +141,15 @@ namespace Valhalla_Into_Chaos
             // InfoTextLabel
             // 
             this.InfoTextLabel.BackColor = System.Drawing.Color.Transparent;
-            this.InfoTextLabel.Location = new System.Drawing.Point(219, 386);
+            this.InfoTextLabel.Location = new System.Drawing.Point(219, 336);
             this.InfoTextLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.InfoTextLabel.Name = "InfoTextLabel";
-            this.InfoTextLabel.Size = new System.Drawing.Size(601, 187);
+            this.InfoTextLabel.Size = new System.Drawing.Size(601, 213);
             this.InfoTextLabel.TabIndex = 9;
             // 
             // throwWeaponButton
             // 
-            this.throwWeaponButton.Location = new System.Drawing.Point(15, 315);
+            this.throwWeaponButton.Location = new System.Drawing.Point(25, 292);
             this.throwWeaponButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.throwWeaponButton.Name = "throwWeaponButton";
             this.throwWeaponButton.Size = new System.Drawing.Size(139, 34);
@@ -158,7 +160,7 @@ namespace Valhalla_Into_Chaos
             // 
             // sendTroopsButton
             // 
-            this.sendTroopsButton.Location = new System.Drawing.Point(159, 315);
+            this.sendTroopsButton.Location = new System.Drawing.Point(170, 292);
             this.sendTroopsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sendTroopsButton.Name = "sendTroopsButton";
             this.sendTroopsButton.Size = new System.Drawing.Size(139, 34);
@@ -169,7 +171,7 @@ namespace Valhalla_Into_Chaos
             // 
             // concussButton
             // 
-            this.concussButton.Location = new System.Drawing.Point(303, 315);
+            this.concussButton.Location = new System.Drawing.Point(315, 292);
             this.concussButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.concussButton.Name = "concussButton";
             this.concussButton.Size = new System.Drawing.Size(139, 34);
@@ -247,7 +249,8 @@ namespace Valhalla_Into_Chaos
             // playerHealthLabel
             // 
             this.playerHealthLabel.AutoSize = true;
-            this.playerHealthLabel.Location = new System.Drawing.Point(17, 16);
+            this.playerHealthLabel.BackColor = System.Drawing.Color.Transparent;
+            this.playerHealthLabel.Location = new System.Drawing.Point(36, 31);
             this.playerHealthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.playerHealthLabel.Name = "playerHealthLabel";
             this.playerHealthLabel.Size = new System.Drawing.Size(0, 17);
@@ -256,43 +259,12 @@ namespace Valhalla_Into_Chaos
             // CPUHealthLabel
             // 
             this.CPUHealthLabel.AutoSize = true;
-            this.CPUHealthLabel.Location = new System.Drawing.Point(973, 11);
+            this.CPUHealthLabel.BackColor = System.Drawing.Color.Transparent;
+            this.CPUHealthLabel.Location = new System.Drawing.Point(943, 31);
             this.CPUHealthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CPUHealthLabel.Name = "CPUHealthLabel";
             this.CPUHealthLabel.Size = new System.Drawing.Size(0, 17);
             this.CPUHealthLabel.TabIndex = 24;
-            // 
-            // CPUPictureBox
-            // 
-            this.CPUPictureBox.Image = global::Valhalla_Into_Chaos.Properties.Resources.Loki_CSF;
-            this.CPUPictureBox.Location = new System.Drawing.Point(749, 50);
-            this.CPUPictureBox.Name = "CPUPictureBox";
-            this.CPUPictureBox.Size = new System.Drawing.Size(279, 238);
-            this.CPUPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CPUPictureBox.TabIndex = 26;
-            this.CPUPictureBox.TabStop = false;
-            // 
-            // playerPictureBox
-            // 
-            this.playerPictureBox.Image = global::Valhalla_Into_Chaos.Properties.Resources.Odin_CSF;
-            this.playerPictureBox.Location = new System.Drawing.Point(15, 50);
-            this.playerPictureBox.Name = "playerPictureBox";
-            this.playerPictureBox.Size = new System.Drawing.Size(279, 238);
-            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.playerPictureBox.TabIndex = 25;
-            this.playerPictureBox.TabStop = false;
-            // 
-            // infoPictureBox
-            // 
-            this.infoPictureBox.BackgroundImage = global::Valhalla_Into_Chaos.Properties.Resources.In_Game_Info_Box_CSF;
-            this.infoPictureBox.Image = global::Valhalla_Into_Chaos.Properties.Resources.In_Game_Info_Box_CSF;
-            this.infoPictureBox.Location = new System.Drawing.Point(208, 369);
-            this.infoPictureBox.Margin = new System.Windows.Forms.Padding(4);
-            this.infoPictureBox.Name = "infoPictureBox";
-            this.infoPictureBox.Size = new System.Drawing.Size(627, 217);
-            this.infoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.infoPictureBox.TabIndex = 7;
-            this.infoPictureBox.TabStop = false;
             // 
             // replayButton
             // 
@@ -316,11 +288,79 @@ namespace Valhalla_Into_Chaos
             this.quitButton4.UseVisualStyleBackColor = true;
             this.quitButton4.Click += new System.EventHandler(this.quitButton4_Click);
             // 
+            // menuLabel
+            // 
+            this.menuLabel.BackColor = System.Drawing.Color.Transparent;
+            this.menuLabel.Location = new System.Drawing.Point(383, 107);
+            this.menuLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.menuLabel.Name = "menuLabel";
+            this.menuLabel.Size = new System.Drawing.Size(283, 279);
+            this.menuLabel.TabIndex = 29;
+            this.menuLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(25, 525);
+            this.backButton.Margin = new System.Windows.Forms.Padding(4);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(100, 28);
+            this.backButton.TabIndex = 30;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
+            // gameOverLabel
+            // 
+            this.gameOverLabel.BackColor = System.Drawing.Color.Transparent;
+            this.gameOverLabel.Location = new System.Drawing.Point(383, 50);
+            this.gameOverLabel.Name = "gameOverLabel";
+            this.gameOverLabel.Size = new System.Drawing.Size(283, 158);
+            this.gameOverLabel.TabIndex = 31;
+            this.gameOverLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // CPUPictureBox
+            // 
+            this.CPUPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.CPUPictureBox.Image = global::Valhalla_Into_Chaos.Properties.Resources.Loki_CSF;
+            this.CPUPictureBox.Location = new System.Drawing.Point(749, 50);
+            this.CPUPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.CPUPictureBox.Name = "CPUPictureBox";
+            this.CPUPictureBox.Size = new System.Drawing.Size(279, 238);
+            this.CPUPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CPUPictureBox.TabIndex = 26;
+            this.CPUPictureBox.TabStop = false;
+            // 
+            // playerPictureBox
+            // 
+            this.playerPictureBox.BackColor = System.Drawing.Color.Transparent;
+            this.playerPictureBox.Image = global::Valhalla_Into_Chaos.Properties.Resources.Odin_CSF;
+            this.playerPictureBox.Location = new System.Drawing.Point(15, 50);
+            this.playerPictureBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.playerPictureBox.Name = "playerPictureBox";
+            this.playerPictureBox.Size = new System.Drawing.Size(279, 238);
+            this.playerPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.playerPictureBox.TabIndex = 25;
+            this.playerPictureBox.TabStop = false;
+            // 
+            // backButton2
+            // 
+            this.backButton2.Location = new System.Drawing.Point(471, 281);
+            this.backButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.backButton2.Name = "backButton2";
+            this.backButton2.Size = new System.Drawing.Size(100, 28);
+            this.backButton2.TabIndex = 32;
+            this.backButton2.Text = "Back";
+            this.backButton2.UseVisualStyleBackColor = true;
+            this.backButton2.Click += new System.EventHandler(this.backButton2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1043, 590);
+            this.Controls.Add(this.backButton2);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.quitButton4);
             this.Controls.Add(this.replayButton);
             this.Controls.Add(this.CPUPictureBox);
@@ -337,7 +377,6 @@ namespace Valhalla_Into_Chaos
             this.Controls.Add(this.sendTroopsButton);
             this.Controls.Add(this.throwWeaponButton);
             this.Controls.Add(this.InfoTextLabel);
-            this.Controls.Add(this.infoPictureBox);
             this.Controls.Add(this.quitButton);
             this.Controls.Add(this.loreButton);
             this.Controls.Add(this.mainMenuButton);
@@ -345,13 +384,16 @@ namespace Valhalla_Into_Chaos
             this.Controls.Add(this.healButton);
             this.Controls.Add(this.defendButton);
             this.Controls.Add(this.attackButton);
+            this.Controls.Add(this.menuLabel);
+            this.Controls.Add(this.gameOverLabel);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Valhalla Into Chaos";
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.CPUPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.infoPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +408,6 @@ namespace Valhalla_Into_Chaos
         private System.Windows.Forms.Button mainMenuButton;
         private System.Windows.Forms.Button loreButton;
         private System.Windows.Forms.Button quitButton;
-        private System.Windows.Forms.PictureBox infoPictureBox;
         private System.Windows.Forms.Label InfoTextLabel;
         private System.Windows.Forms.Button throwWeaponButton;
         private System.Windows.Forms.Button sendTroopsButton;
@@ -383,6 +424,10 @@ namespace Valhalla_Into_Chaos
         private System.Windows.Forms.PictureBox CPUPictureBox;
         private System.Windows.Forms.Button replayButton;
         private System.Windows.Forms.Button quitButton4;
+        private System.Windows.Forms.Label menuLabel;
+        private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.Label gameOverLabel;
+        private System.Windows.Forms.Button backButton2;
     }
 }
 

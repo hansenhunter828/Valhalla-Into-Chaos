@@ -71,6 +71,42 @@ namespace Valhalla_Into_Chaos.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream buttonClick {
+            get {
+                return ResourceManager.GetStream("buttonClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream gameOverSound {
+            get {
+                return ResourceManager.GetStream("gameOverSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream healSound {
+            get {
+                return ResourceManager.GetStream("healSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream hurtSound {
+            get {
+                return ResourceManager.GetStream("hurtSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap In_Game_Info_Box_CSF {
@@ -86,6 +122,16 @@ namespace Valhalla_Into_Chaos.Properties {
         internal static System.Drawing.Bitmap Loki_CSF {
             get {
                 object obj = ResourceManager.GetObject("Loki CSF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Menu_Screen_Border_CSF {
+            get {
+                object obj = ResourceManager.GetObject("Menu Screen Border CSF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
