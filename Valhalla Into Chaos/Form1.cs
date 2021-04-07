@@ -15,6 +15,7 @@ namespace Valhalla_Into_Chaos
     public partial class Form1 : Form
     {
         #region Variables
+        //Variables
         int playerHealth = 100;
         int CPUHealth = 100;
 
@@ -40,6 +41,7 @@ namespace Valhalla_Into_Chaos
         }
         public void GameSetup()
         {
+            //Shows In game screen
             attackButton.Show();
             defendButton.Show();
             healButton.Show();
@@ -70,6 +72,7 @@ namespace Valhalla_Into_Chaos
         }
         public void GameStart()
         {
+            //Shows mainmenu screen
             backButton2.Hide();
             attackButton.Hide();
             defendButton.Hide();
@@ -103,6 +106,7 @@ namespace Valhalla_Into_Chaos
         }
         public void GameOver()
         {
+            //Shows game over screen
             attackButton.Hide();
             defendButton.Hide();
             healButton.Hide();
@@ -143,6 +147,7 @@ namespace Valhalla_Into_Chaos
         }
         public void BotTurn()
         {
+            //Randoming selects bots move and attacks
             botHealTurn++;
             int botMove = ranGen.Next(1, 101);
             if (playerBlocking == false)
@@ -296,19 +301,23 @@ namespace Valhalla_Into_Chaos
         }
         public void RefreshHealth()
         {
+            //Refreshes health labels
             playerHealthLabel.Text = $"Health: {playerHealth}";
             CPUHealthLabel.Text = $"Health: {CPUHealth}";
         }
         #region Player Moves
+        //Player Moves
         private void attackButton_Click(object sender, EventArgs e)
         {
+            //Opens attack menu
             buttonClickSound.Play();
             throwWeaponButton.Show();
             sendTroopsButton.Show();
             concussButton.Show();
-        }//compelete
+        }
         private void defendButton_Click(object sender, EventArgs e)
         {
+            //Plays button sound and displays some text
             buttonClickSound.Play();
             healTurn++;
             troopsTurn++;
@@ -322,9 +331,10 @@ namespace Valhalla_Into_Chaos
 
             InfoTextLabel.Text = "Loki attacks you with his weapon but you are ready for him and block his attack";
             RefreshHealth();
-        }//compelete
+        }
         private void healButton_Click(object sender, EventArgs e)
         {
+            //Plays button click sound and does heal code
             buttonClickSound.Play();
             healTurn++;
             troopsTurn++;
@@ -376,15 +386,18 @@ namespace Valhalla_Into_Chaos
             }
             RefreshHealth();
             BotTurn();
-        }//compelete
+        }
         private void escapeButton_Click(object sender, EventArgs e)
         {
+            //Brings you to main menu
             buttonClickSound.Play();
             GameStart();
-        }//compelete
+        }
         #region Attacks
+        //Player Attacks
         private void throwWeaponButton_Click(object sender, EventArgs e)
         {
+            //Plays button sound and randomly roles if player hit and damage
             buttonClickSound.Play();
             int hitChance = ranGen.Next(1, 11);
             healTurn++;
@@ -424,9 +437,10 @@ namespace Valhalla_Into_Chaos
             }
 
 
-        }//compelete
+        }
         private void sendTroopsButton_Click(object sender, EventArgs e)
         {
+            //Plays button sound and randomly roles if player hit and damage
             buttonClickSound.Play();
             int sendTroopsHit = ranGen.Next(1, 11);
             healTurn++;
@@ -465,9 +479,10 @@ namespace Valhalla_Into_Chaos
             }
 
             RefreshHealth();
-        }//compelete
+        }
         private void concussButton_Click(object sender, EventArgs e)
         {
+            //Plays button sound and randomly roles if player hit
             buttonClickSound.Play();
             healTurn++;
             troopsTurn++;
@@ -512,12 +527,14 @@ namespace Valhalla_Into_Chaos
             }
 
             RefreshHealth();
-        }//compelete
+        }
         #endregion
         #endregion
         #region Menu Buttons
+        //Menu buttons
         private void loreButton_Click(object sender, EventArgs e)
         {
+            //Hides everything and show lore text
             buttonClickSound.Play();
             GameStart();
             attackButton.Hide();
@@ -535,31 +552,36 @@ namespace Valhalla_Into_Chaos
             menuLabel.Text = "You as Odin have created this civilization but your family disagrees with your decisions " +
                             "and decided the only way to get the way they want is to kill you and take your place. You must defend your " +
                             "life so your family doesn't create some terrible things and unleash them upon your world.";
-        }//not complete
+        }
         private void quitButton_Click(object sender, EventArgs e)
         {
+            //Shows Quit menu
             buttonClickSound.Play();
             quitButton2.Show();
             cancelButton.Show();
-        }//compelete
+        }
         private void quitButton2_Click(object sender, EventArgs e)
         {
+            //Quits the game
             buttonClickSound.Play();
             Application.Exit();
-        }//compelete
+        }
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            //Closes quit menu
             buttonClickSound.Play();
             quitButton2.Hide();
             cancelButton.Hide();
-        }//compelete
+        }
         private void playButton_Click(object sender, EventArgs e)
         {
+            //Opens actual game screen
             buttonClickSound.Play();
             GameSetup();
-        }//Complete
+        }
         private void loreButton2_Click(object sender, EventArgs e)
         {
+            //Hides everything and shows lore text
             buttonClickSound.Play();
             loreButton2.Hide();
             playButton.Hide();
@@ -569,9 +591,10 @@ namespace Valhalla_Into_Chaos
             menuLabel.Text = "You as Odin have created this civilization but your family disagrees with your decisions " +
                 "and decided the only way to get the way they want is to kill you and take your place. You must defend your " +
                 "life so your family doesn't create some terrible things and unleash them upon your world.";
-        }//complete
+        }
         private void settingButton_Click(object sender, EventArgs e)
         {
+            //Hides everything and show settings text
             buttonClickSound.Play();
             loreButton2.Hide();
             playButton.Hide();
@@ -585,29 +608,34 @@ namespace Valhalla_Into_Chaos
             menuLabel.Text += "\n\nYour goal is to defeat Loki in a turn based combat system";
             menuLabel.Text += "\n\nGood luck and have fun!";
 
-        }//complete
+        }
         private void quitButtonTwo_Click(object sender, EventArgs e)
         {
+            //Quits Game
             buttonClickSound.Play();
             Application.Exit();
-        }//Complete
+        }
         private void mainMenuButton_Click(object sender, EventArgs e)
         {
+            //Brings you to main menu
             buttonClickSound.Play();
             GameStart();
-        }//Complete
+        }
         private void replayButton_Click(object sender, EventArgs e)
         {
+            //Replays game
             buttonClickSound.Play();
             GameSetup();
-        }//complete
+        }
         private void quitButton4_Click(object sender, EventArgs e)
         {
+            //Quits game
             buttonClickSound.Play();
             Application.Exit();
-        }//complete
+        }
         private void backButton_Click(object sender, EventArgs e)
         {
+            //Show main menu UI and hides lore text
             buttonClickSound.Play();
             loreButton2.Show();
             playButton.Show();
@@ -615,9 +643,10 @@ namespace Valhalla_Into_Chaos
             quitButton3.Show();
             backButton.Hide();
             menuLabel.Text = "";
-        }//complete
+        }
         private void backButton2_Click(object sender, EventArgs e)
         {
+            //Shows in game UI and hides lore text
             buttonClickSound.Play();
             attackButton.Show();
             defendButton.Show();
@@ -631,13 +660,15 @@ namespace Valhalla_Into_Chaos
             playerPictureBox.Show();
             CPUPictureBox.Show();
             menuLabel.Text = "";
-        }//complete
+        }
         #endregion
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+            //Draws in background art
             #region Brushes
             SolidBrush brownBrush = new SolidBrush(Color.SaddleBrown);
             SolidBrush sandyBrownBrush = new SolidBrush(Color.SandyBrown);
+            SolidBrush blackBrush = new SolidBrush(Color.Black);
             #endregion
             #region Background
             //Outline
@@ -647,6 +678,7 @@ namespace Valhalla_Into_Chaos
             e.Graphics.FillRectangle(brownBrush, 0, 460, 800, 20);
             //Inside
             e.Graphics.FillRectangle(sandyBrownBrush, 20, 20, 745, 440);
+
             #endregion
         }
     }
